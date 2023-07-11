@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "water-reminder",
-    "slug": "water-reminder",
+    "slug": "aqua-buddy",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "741f12d1-e203-4be8-8605-afdd7b70ad77"
+      }
+    },
+    "owner": "kishantalekar"
   }
 }
