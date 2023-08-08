@@ -10,6 +10,11 @@ import * as SplashScreen from "expo-splash-screen";
 import Setting from "../screens/settings/Setting";
 import LogScreen from "../screens/Logs/LogScreen";
 import ReminderScheduleScreen from "../screens/ReminderSchedule/ReminderScheduleScreen";
+import { GENDER_SCREEN } from "../constants/screen";
+import GenderScreen from "../screens/intro/Gender/GenderScreen";
+import WeightScreen from "../screens/intro/Weight/WeightScreen";
+import ActivityScreen from "../screens/intro/Activity/ActivityScreen";
+import WaterIntakeScreen from "../screens/intro/WaterIntakeScreen";
 
 const Navigation = () => {
   const Stack = createNativeStackNavigator();
@@ -88,6 +93,26 @@ const Navigation = () => {
             headerShown: false,
           }}
           component={ReminderScheduleScreen}
+        />
+        <Stack.Screen
+          name="genderScreen"
+          options={{ headerShown: false }}
+          component={GenderScreen}
+        />
+        <Stack.Screen
+          name="weightScreen"
+          options={{ headerShown: false }}
+          component={WeightScreen}
+        />
+        <Stack.Screen
+          name="activityScreen"
+          options={{ headerShown: false }}
+          component={ActivityScreen}
+        />
+        <Stack.Screen
+          name="waterInTakeScreen"
+          options={{ headerShown: false }}
+          component={WaterIntakeScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

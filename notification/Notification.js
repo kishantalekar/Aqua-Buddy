@@ -19,18 +19,16 @@ export const registerForPushNotificationsAsync = async () => {
     const { status: existingStatus } =
       await Notifications.getPermissionsAsync();
     let finalStatus = existingStatus;
-    console.log(finalStatus, "from usenotification");
+
     if (existingStatus !== "granted") {
       const { status } = await Notifications.requestPermissionsAsync();
       finalStatus = status;
-      console.log(status);
     }
     if (finalStatus !== "granted") {
       alert("Failed to get push token for push notification!");
       return;
     }
     token = (await Notifications.getExpoPushTokenAsync()).data;
-    console.log(token);
   } else {
     alert("Must use physical device for Push Notifications");
   }
@@ -105,8 +103,6 @@ export const checkScheduledNotifications = async () => {
 
       return time;
     });
-
-    console.log(reminderTimes);
   } else {
     console.log("No scheduled notifications found.");
   }

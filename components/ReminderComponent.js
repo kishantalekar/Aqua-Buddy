@@ -34,7 +34,6 @@ const ReminderComponent = () => {
 
       if (!data || data.length == 0) {
         data = getReminderTimes();
-        // console.log(data);
       }
       setReminderTimes(data);
       setClosestReminder(getClosestReminder(data));
@@ -55,7 +54,7 @@ const ReminderComponent = () => {
   // useEffect(() => {
   //   const scheduleRemindersIfNotScheduled = async () => {
   //     registerForPushNotificationsAsync();
-  //     console.log(reminderTimes);
+  //
   //     scheduleReminders(reminderTimes);
 
   //     saveRemindingTimes(reminderTimes);
@@ -64,7 +63,6 @@ const ReminderComponent = () => {
 
   //   const checkRemindersScheduled = async () => {
   //     const value = await AsyncStorage.getItem("remindersScheduled");
-  //     console.log(value);
 
   //     scheduleRemindersIfNotScheduled();
   //   };

@@ -1,18 +1,23 @@
+import { WEIGHT_SCREEN } from "../../../constants/screen";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import ScrollWheel from "../../../components/ScrollWheel";
 import { AntDesign, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { ACTIVITY_SCREEN, GENDER_SCREEN } from "../../../constants/screen";
-import Activity from "../Activity/Activity";
-import { setItem } from "../../../storage/database";
-import { WEIGHT_KEY } from "../../../constants/storage";
-const Weight = ({ onPrevPage, onNextPage }) => {
-  const [selectedIndex, setSelectedIndex] = useState(19);
-  let data = [
-    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
-    60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78,
-    79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
-  ];
+import { useNavigation } from "@react-navigation/native";
+import { getItem, setItem } from "../../../storage/database";
+import { ACTIVITY_KEY, AUTH_KEY } from "../../../constants/storage";
+const ActivityScreen = ({ onPrevPage }) => {
+  const [selectedIndex, setSelectedIndex] = useState(2);
+  const navigation = useNavigation();
+
+  const data = [10, 20, 30, 40, 50, 60, 90, 120, 160, 200, 240];
+  const handleNavigate = async () => {
+    await setItem(ACTIVITY_KEY, data[selectedIndex]);
+
+    navigation.navigate("settings", { activity: data[selectedIndex] });
+  };
+
   const renderItem = (data, index) => {
     return (
       <View key={index}>
@@ -28,13 +33,9 @@ const Weight = ({ onPrevPage, onNextPage }) => {
       </View>
     );
   };
+
   const onValueChange = (data, selectedIndex) => {
     setSelectedIndex(selectedIndex);
-  };
-  const nextPageHandler = async () => {
-    await setItem(WEIGHT_KEY, data[selectedIndex]);
-
-    onNextPage(ACTIVITY_SCREEN);
   };
   return (
     <>
@@ -48,12 +49,14 @@ const Weight = ({ onPrevPage, onNextPage }) => {
           borderRadius: 10,
           padding: 4,
         }}
-        onPress={() => onPrevPage(GENDER_SCREEN)}
+        onPress={() => onPrevPage(WEIGHT_SCREEN)}
       >
         <Ionicons name="chevron-back" size={24} color="black" />
       </TouchableOpacity>
       <View style={styles.weightContainer}>
-        <Text style={styles.weightText}>what is your current Weight?</Text>
+        <Text style={styles.weightText}>
+          How much time do you train per day?
+        </Text>
         <View style={styles.wheel}>
           <AntDesign
             name="caretright"
@@ -69,7 +72,7 @@ const Weight = ({ onPrevPage, onNextPage }) => {
               data={data}
             />
           </View>
-          <Text style={styles.scrollText}>kg</Text>
+          <Text style={styles.scrollText}>min</Text>
         </View>
       </View>
       <TouchableOpacity
@@ -83,21 +86,23 @@ const Weight = ({ onPrevPage, onNextPage }) => {
           marginRight: 20,
           marginBottom: 20,
         }}
-        onPress={nextPageHandler}
+        onPress={handleNavigate}
       >
         <MaterialIcons name="navigate-next" size={24} color="white" />
       </TouchableOpacity>
     </>
   );
 };
+
 const styles = StyleSheet.create({
   weightContainer: {
     flex: 1,
     backgroundColor: "white",
+    paddingTop: 80,
   },
   weightText: {
     fontWeight: "bold",
-    fontSize: 30,
+    fontSize: 28,
     // backgroundColor: "red",
     textAlign: "center",
   },
@@ -106,10 +111,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     // padding: 20,
-    marginTop: 40,
   },
   icon: {
-    paddingTop: 4,
+    paddingTop: 10,
     paddingRight: 10,
     marginTop: 50,
   },
@@ -121,11 +125,9 @@ const styles = StyleSheet.create({
     borderBottomColor: "#d8d8d8",
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    width: 40,
-    height: 78,
     marginTop: 56,
+    paddingBottom: 20,
     textAlign: "center",
-    justifyContent: "center",
     alignItems: "center",
     paddingTop: 18,
   },
@@ -136,4 +138,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
-export default Weight;
+export default ActivityScreen;

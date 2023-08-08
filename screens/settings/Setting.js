@@ -8,13 +8,14 @@ import {
   ACTIVITY_KEY,
   AUTH_KEY,
   GENDER_KEY,
+  WATER_IN_TAKE_GOAL,
   WEIGHT_KEY,
 } from "../../constants/storage";
 import { calcDailyGoal } from "../../utils/Drink";
 // import { Restart } from "fiction-expo-restart";
 import * as Updates from "expo-updates";
 
-const Setting = ({ handleAuthChange }) => {
+const Setting = ({ handleAuthChange, route }) => {
   //rest object
   const navigation = useNavigation();
 
@@ -30,10 +31,13 @@ const Setting = ({ handleAuthChange }) => {
       const weight = await getItem(WEIGHT_KEY);
       const gender = JSON.parse(await getItem(GENDER_KEY)) || "Male";
       const activity = await getItem(ACTIVITY_KEY);
-      const calcDailyIntake = calcDailyGoal(weight, activity);
 
+      setWaterInTake(
+        JSON.parse(await getItem(WATER_IN_TAKE_GOAL)) ||
+          calcDailyGoal(weight, activity)
+      );
       setGender(gender);
-      setWaterInTake(calcDailyIntake);
+
       setWeight(weight);
       setAcitivty(activity);
     };
@@ -44,8 +48,21 @@ const Setting = ({ handleAuthChange }) => {
     const res = await clearStorage();
     handleAuthChange(false); // Update the authentication status to false
     navigation.navigate("Welcome");
-    Updates.reloadAsync();
+    // Updates.reloadAsync();
   };
+
+  useEffect(() => {
+    const setData = () => {
+      if (route.params && "weight" in route.params) {
+        setWeight(route.params.weight);
+      } else if (route.params && "activity" in route.params) {
+        setAcitivty(route.params.activity);
+      } else if (route.params && "waterIntake" in route.params) {
+        setWaterInTake(route.params.waterIntake);
+      }
+    };
+    setData();
+  }, [route]);
 
   return (
     <View>
@@ -78,43 +95,77 @@ const Setting = ({ handleAuthChange }) => {
             <Text style={styles.headTag}>Gender</Text>
             <Text style={styles.subTag}>{gender}</Text>
           </View>
-          <Feather name="edit-3" size={18} color="gray" />
+          <TouchableOpacity onPress={() => navigation.navigate("genderScreen")}>
+            <Feather name="edit-3" size={18} color="gray" />
+          </TouchableOpacity>
         </View>
         <View style={styles.editContainer}>
           <View style={styles.tagContainer}>
             <Text style={styles.headTag}>Weight</Text>
             <Text style={styles.subTag}>{weight} kg</Text>
           </View>
-          <Feather name="edit-3" size={18} color="gray" />
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("weightScreen", {
+                weight: weight,
+              })
+            }
+          >
+            <Feather name="edit-3" size={18} color="gray" />
+          </TouchableOpacity>
         </View>
         <View style={styles.editContainer}>
           <View style={styles.tagContainer}>
             <Text style={styles.headTag}>Water Intake Goal</Text>
             <Text style={styles.subTag}>{waterInTake} ml</Text>
           </View>
-          <Feather name="edit-3" size={18} color="gray" />
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("waterInTakeScreen", {
+                waterInTake: waterInTake,
+              })
+            }
+          >
+            <Feather name="edit-3" size={18} color="gray" />
+          </TouchableOpacity>
         </View>
         <View style={styles.editContainer}>
           <View style={styles.tagContainer}>
             <Text style={styles.headTag}>Activity</Text>
             <Text style={styles.subTag}>{activity} min</Text>
           </View>
-          <Feather name="edit-3" size={18} color="gray" />
+          <TouchableOpacity
+            onPress={() => navigation.navigate("activityScreen")}
+          >
+            <Feather name="edit-3" size={18} color="gray" />
+          </TouchableOpacity>
         </View>
-        <View style={styles.editContainer}>
+        {/* <View style={styles.editContainer}>
           <View style={styles.tagContainer}>
             <Text style={styles.headTag}>Sleep Time</Text>
             <Text style={styles.subTag}>11:00 pm</Text>
           </View>
-          <Feather name="edit-3" size={18} color="gray" />
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("sleepScheduleScreen", { type: "sleep" })
+            }
+          >
+            <Feather name="edit-3" size={18} color="gray" />
+          </TouchableOpacity>
         </View>
         <View style={styles.editContainer}>
           <View style={styles.tagContainer}>
             <Text style={styles.headTag}>Wake Up Time</Text>
             <Text style={styles.subTag}>06:00 am</Text>
           </View>
-          <Feather name="edit-3" size={18} color="gray" />
-        </View>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("sleepScheduleScreen", { type: "wake" })
+            }
+          >
+            <Feather name="edit-3" size={18} color="gray" />
+          </TouchableOpacity>
+        </View> */}
       </View>
       <TouchableOpacity
         style={styles.reminderContainer}
@@ -123,12 +174,12 @@ const Setting = ({ handleAuthChange }) => {
         <Text style={styles.reminderText}>Scheduled Reminder</Text>
       </TouchableOpacity>
 
-      <View style={styles.logoutContainer}>
+      {/* <View style={styles.logoutContainer}>
         <Text style={styles.logoutText}>Logout</Text>
         <TouchableOpacity onPress={handleLogout}>
           <MaterialIcons name="logout" size={28} color="gray" />
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 };

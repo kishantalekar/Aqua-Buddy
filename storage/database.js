@@ -30,7 +30,6 @@ export const saveRecords = async (records) => {
   try {
     const recordsJSON = JSON.stringify(records);
     await AsyncStorage.setItem("records", recordsJSON);
-    console.log("Records saved successfully!");
   } catch (error) {
     console.log("Error saving records:", error);
   }
@@ -41,7 +40,6 @@ export const saveRemindingTimes = async (remindingTimes) => {
   try {
     const remindingTimesJson = JSON.stringify(remindingTimes);
     await AsyncStorage.setItem("remindingTimes", remindingTimesJson);
-    console.log("remindingTimes saved succesfully");
   } catch (error) {
     console.log(error);
   }

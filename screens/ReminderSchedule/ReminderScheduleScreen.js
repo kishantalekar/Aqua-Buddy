@@ -7,16 +7,18 @@ import { getRemindingTimes, saveRemindingTimes } from "../../storage/database";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import RemindingTime from "../../components/RemindingTime";
 import { scheduleReminders } from "../../notification/Notification";
+import { useDispatch, useSelector } from "react-redux";
+import { addRemindingTimes } from "../../features/reminderSlicd";
 
 const ReminderScheduleScreen = () => {
   const navigation = useNavigation();
   const [remindingTimes, setRemindingTimes] = useState([]);
   const [selectedTime, setSelectedTime] = useState(new Date());
   const [showPicker, setShowPicker] = useState(false);
-
+  const dispatch = useDispatch();
   const getData = async () => {
     const data = await getRemindingTimes();
-    // console.log(data);
+
     setRemindingTimes(data);
   };
   useEffect(() => {
@@ -41,7 +43,7 @@ const ReminderScheduleScreen = () => {
     if (formattedTime.length === 7) {
       formattedTime = "0" + formattedTime;
     }
-    // console.log(formattedTime);
+
     const newReminder = {
       id: Math.random().toString(),
       time: formattedTime,
@@ -49,11 +51,13 @@ const ReminderScheduleScreen = () => {
     };
 
     const updatedReminders = [...remindingTimes, newReminder];
-    console.log(updatedReminders, "from 4");
+
     setRemindingTimes(updatedReminders);
+
     saveRemindingTimes(updatedReminders);
     scheduleReminders(updatedReminders);
   };
+
   const showTimePicker = () => {
     setShowPicker(true);
   };
@@ -76,6 +80,7 @@ const ReminderScheduleScreen = () => {
     saveRemindingTimes(updatedReminders);
     scheduleReminders(updatedReminders);
   };
+
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <View
@@ -108,7 +113,7 @@ const ReminderScheduleScreen = () => {
           We will optimize reminder time based on your record history
         </Text>
         <View>
-          {remindingTimes.map((item, i) => (
+          {remindingTimes?.map((item, i) => (
             <RemindingTime
               item={item}
               i={i}

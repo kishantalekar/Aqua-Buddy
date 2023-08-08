@@ -16,8 +16,6 @@ const DrinkWaterReport = ({ records }) => {
 
       setMonthly(monthlyData);
       setWeekly(weeklyData);
-      console.log(weeklyData, "from drinkwater report");
-      console.log(monthlyData, "from drinkwater report");
     };
     calculateWaterReport();
   }, []);

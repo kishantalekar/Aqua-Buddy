@@ -2,7 +2,13 @@ import { View, Text } from "react-native";
 import React, { useMemo } from "react";
 import ScrollPicker from "react-native-wheel-scrollview-picker";
 
-const ScrollWheel = ({ renderItem, onValueChange, selectedIndex, data }) => {
+const ScrollWheel = ({
+  renderItem,
+  onValueChange,
+  selectedIndex,
+  data,
+  scrollTo,
+}) => {
   return (
     <ScrollPicker
       dataSource={data}

@@ -1,9 +1,10 @@
 import { View, Text } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Image } from "react-native";
 import { RotateInDownLeft } from "react-native-reanimated";
 
 const Suggestions = () => {
+  const [randomSuggestion, setRandomSuggestion] = useState("");
   const SuggestionsText = [
     "Hold the water in your mouth for a while before swallowing",
     "A healthy mind and body is a hydrated one. Come and have a try",
@@ -28,7 +29,10 @@ const Suggestions = () => {
   }
 
   // Usage:
-  const randomSuggestion = getRandomSuggestion();
+  useEffect(() => {
+    setRandomSuggestion(getRandomSuggestion());
+  }, []);
+
   return (
     <View
       style={{

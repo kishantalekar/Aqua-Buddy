@@ -2,12 +2,20 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import ScrollWheel from "../../../components/ScrollWheel";
 import { AntDesign, Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { ACTIVITY_SCREEN, GENDER_SCREEN } from "../../../constants/screen";
+import {
+  ACTIVITY_SCREEN,
+  GENDER_SCREEN,
+  WEIGHT_SCREEN,
+} from "../../../constants/screen";
 import Activity from "../Activity/Activity";
-import { setItem } from "../../../storage/database";
+import { getItem, setItem } from "../../../storage/database";
 import { WEIGHT_KEY } from "../../../constants/storage";
-const Weight = ({ onPrevPage, onNextPage }) => {
+import { useNavigation } from "@react-navigation/native";
+import { useEffect } from "react";
+const WeightScreen = ({ route }) => {
+  console.log(route.params.weight);
   const [selectedIndex, setSelectedIndex] = useState(19);
+  const navigation = useNavigation();
   let data = [
     41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
     60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78,
@@ -33,9 +41,16 @@ const Weight = ({ onPrevPage, onNextPage }) => {
   };
   const nextPageHandler = async () => {
     await setItem(WEIGHT_KEY, data[selectedIndex]);
-
-    onNextPage(ACTIVITY_SCREEN);
+    navigation.navigate("settings", { weight: data[selectedIndex] });
   };
+  useEffect(() => {
+    const getCurrentWeight = async () => {
+      const weight = await getItem(WEIGHT_KEY);
+      setSelectedIndex(data.indexOf(weight));
+    };
+    // getCurrentWeight();
+  }, []);
+
   return (
     <>
       <TouchableOpacity
@@ -94,6 +109,7 @@ const styles = StyleSheet.create({
   weightContainer: {
     flex: 1,
     backgroundColor: "white",
+    paddingTop: 100,
   },
   weightText: {
     fontWeight: "bold",
@@ -136,4 +152,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
-export default Weight;
+export default WeightScreen;

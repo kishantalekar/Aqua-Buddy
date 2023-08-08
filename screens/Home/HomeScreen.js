@@ -10,8 +10,18 @@ import {
 } from "../../components";
 
 import { useEffect, useState } from "react";
-import { getItem, getRecords, saveRecords } from "../../storage/database";
-import { ACTIVITY_KEY, GENDER_KEY, WEIGHT_KEY } from "../../constants/storage";
+import {
+  getItem,
+  getRecords,
+  saveRecords,
+  setItem,
+} from "../../storage/database";
+import {
+  ACTIVITY_KEY,
+  GENDER_KEY,
+  PROGRESS_KEY,
+  WEIGHT_KEY,
+} from "../../constants/storage";
 import { calcDailyGoal } from "../../utils/Drink";
 import AddWater from "../../components/AddWater";
 import { generateRandomId, getDisplayTime, getTime } from "../../utils/helper";
@@ -24,25 +34,18 @@ const HomeScreen = ({ logout }) => {
   const [percentage, setPercentage] = useState(0);
 
   const [records, setRecords] = useState([]);
-  const clearDataFromHomeScreen = () => {
-    setDailyGoal(0);
-    setPercentage(0);
-    setProgress(0);
-    setRecords([]);
-  };
-  useEffect(() => {
-    if (logout == true) {
-      clearDataFromHomeScreen();
-    }
-  }, [logout]);
 
   //getting userInfo
   useEffect(() => {
     const loadData = async () => {
       const weight = await getItem(WEIGHT_KEY);
       const activity = await getItem(ACTIVITY_KEY);
+      let progressFromDB = parseInt(await getItem(PROGRESS_KEY));
       const calcDailyIntake = calcDailyGoal(weight, activity);
       setDailyGoal(calcDailyIntake);
+
+      // console.log(typeof progressFromDB, "db");
+      if (progressFromDB !== null) setProgress(progressFromDB);
     };
     loadData();
     calcPercentage();
@@ -76,16 +79,17 @@ const HomeScreen = ({ logout }) => {
       if (recordsJSON) {
         const loadedRecords = JSON.parse(recordsJSON);
         setRecords(loadedRecords);
-        console.log("Records loaded successfully!");
+        // console.log("Records loaded successfully!");
       }
     } catch (error) {
       console.log("Error loading records:", error);
     }
   };
 
-  const handleProgress = () => {
+  const handleProgress = async () => {
     if (progress < dailyGoal) {
       setProgress((prevProgress) => prevProgress + 200);
+      await setItem(PROGRESS_KEY, progress + 200);
       const time = getTime();
       const id = generateRandomId();
       const displayTime = getDisplayTime();
@@ -104,7 +108,7 @@ const HomeScreen = ({ logout }) => {
 
   return (
     <>
-      <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
         {/* top container start */}
         <Header />
         {/* top container end */}
@@ -145,7 +149,7 @@ const HomeScreen = ({ logout }) => {
           {/* Record end */}
         </View>
         <RecordComponent records={records} />
-      </SafeAreaView>
+      </View>
     </>
   );
 };
