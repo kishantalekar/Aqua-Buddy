@@ -47,7 +47,14 @@ const LogScreen = ({ route }) => {
   }, []);
 
   return (
-    <View style={{ marginTop: 40, paddingHorizontal: 20, flex: 1 }}>
+    <View
+      style={{
+        marginTop: 40,
+        paddingHorizontal: 20,
+        flex: 1,
+        marginBottom: 10,
+      }}
+    >
       <DrinkWaterReport records={records} />
       <View>
         <View
@@ -55,6 +62,7 @@ const LogScreen = ({ route }) => {
             borderBottomWidth: 0.8,
             borderColor: "gray",
             marginTop: 15,
+            marginBottom: 10,
           }}
         ></View>
         <RecordsTable records={records} handleRecord={handleRecord} />
@@ -82,8 +90,8 @@ const LogScreen = ({ route }) => {
               <Text
                 style={{
                   color: "#5bacfe",
-                  fontWeight: "bold",
-                  fontSize: 18,
+                  fontWeight: 400,
+                  fontSize: 14,
                   marginTop: 2,
 
                   textAlign: "right",

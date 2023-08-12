@@ -9,23 +9,29 @@ const ProgressData = ({ dailyGoal, progress, percentage, handleProgress }) => {
 
   return (
     <View style={styles.progressContainer}>
-      <Text style={{ color: "gray", fontWeight: "500" }}>200 ml</Text>
+      <Text style={{ color: "gray", fontWeight: "500", fontSize: 12 }}>
+        200 ml
+      </Text>
       <Text
         style={{
           color: "#5bacfe",
-          fontSize: 34,
+          fontSize: 24,
           borderBottomWidth: 0.5,
           borderColor: "gray",
-          fontWeight: 400,
+          fontWeight: "bold",
         }}
       >
         {progress}
-        <Text style={{ color: "black" }}>/{dailyGoal || 0} ml</Text>
+        <Text style={{ color: "black", fontSize: 24 }}>
+          /{dailyGoal || 0} ml
+        </Text>
       </Text>
-      <Text style={{ color: "gray", fontWeight: "500", marginTop: 4 }}>
+      <Text
+        style={{ color: "gray", fontWeight: "500", marginTop: 8, fontSize: 12 }}
+      >
         You have completed {percentage.toString() || 1}% of
       </Text>
-      <Text style={{ color: "gray", fontWeight: "500" }}>
+      <Text style={{ color: "gray", fontWeight: "500", fontSize: 12 }}>
         your daily drink target
       </Text>
     </View>

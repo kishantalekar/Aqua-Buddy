@@ -1,16 +1,21 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
+import { ScrollView } from "react-native";
 
 const RecordsTable = ({ records, handleRecord }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   //   console.log("\n\n\n", records);
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        justifyContent: "space-evenly",
-        marginTop: 10,
-      }}
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      style={{ gap: 10 }}
+      contentContainerStyle={{ gap: 5 }}
+      // style={{
+      //   flexDirection: "row",
+      //   justifyContent: "space-evenly",
+      //   marginTop: 10,
+      // }}
     >
       <RecordButton
         selectedIndex={selectedIndex}
@@ -20,10 +25,6 @@ const RecordsTable = ({ records, handleRecord }) => {
         handleRecord={handleRecord}
       />
 
-      <View
-        style={{ borderStartWidth: 0.8, borderColor: "gray", height: 30 }}
-      ></View>
-
       <RecordButton
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
@@ -31,9 +32,6 @@ const RecordsTable = ({ records, handleRecord }) => {
         index={1}
         handleRecord={handleRecord}
       />
-      <View
-        style={{ borderStartWidth: 0.8, borderColor: "gray", height: 30 }}
-      ></View>
 
       <RecordButton
         selectedIndex={selectedIndex}
@@ -42,7 +40,7 @@ const RecordsTable = ({ records, handleRecord }) => {
         index={2}
         handleRecord={handleRecord}
       />
-    </View>
+    </ScrollView>
   );
 };
 const RecordButton = ({

@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Platform } from "react-native";
+import { View, Text, FlatList, Platform, ScrollView } from "react-native";
 import { useState, useEffect, useRef } from "react";
 import ListRecord from "./ListRecord";
 import ReminderComponent from "../ReminderComponent";
@@ -14,8 +14,16 @@ const RecordComponent = ({ records }) => {
     const data = todayRecords(records);
     setDisplayTodaysRecord(data);
   }, [records]);
+  {
+    /* <FlatList
+          data={displayTodaysRecord}
+          renderItem={renderItem}
+          keyExtractor={(item) => item?.id}
+          showsVerticalScrollIndicator={false}
+        /> */
+  }
   return (
-    <View style={{ marginHorizontal: 15, flex: 1, marginBottom: 10 }}>
+    <View style={{ marginHorizontal: 15, flex: 1, marginBottom: 40 }}>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Text
           style={{
@@ -49,12 +57,11 @@ const RecordComponent = ({ records }) => {
       <ReminderComponent />
       {/* records start */}
       {displayTodaysRecord.length > 0 ? (
-        <FlatList
-          data={displayTodaysRecord}
-          renderItem={renderItem}
-          keyExtractor={(item) => item?.id}
-          showsVerticalScrollIndicator={false}
-        />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {displayTodaysRecord?.map((record) => (
+            <ListRecord item={record} key={record.id} />
+          ))}
+        </ScrollView>
       ) : (
         <View
           style={{

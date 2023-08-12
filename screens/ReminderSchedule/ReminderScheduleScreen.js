@@ -9,6 +9,7 @@ import RemindingTime from "../../components/RemindingTime";
 import { scheduleReminders } from "../../notification/Notification";
 import { useDispatch, useSelector } from "react-redux";
 import { addRemindingTimes } from "../../features/reminderSlicd";
+import { ViewComponent } from "react-native";
 
 const ReminderScheduleScreen = () => {
   const navigation = useNavigation();
@@ -82,7 +83,7 @@ const ReminderScheduleScreen = () => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: "white" }}>
+    <View style={{ flex: 1, backgroundColor: "white", paddingBottom: 20 }}>
       <View
         style={{
           backgroundColor: "#3ba2ff",
@@ -100,7 +101,7 @@ const ReminderScheduleScreen = () => {
           Reminder schedule
         </Text>
       </View>
-      <ScrollView>
+      <ScrollView style={{ paddingBottom: 40 }}>
         <Text
           style={{
             color: "gray",

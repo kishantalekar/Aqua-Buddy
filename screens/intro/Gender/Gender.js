@@ -90,13 +90,16 @@ const styles = StyleSheet.create({
   genderContainer: {
     marginTop: 20,
     alignItems: "center",
-    // backgroundColor: "red",
+    backgroundColor: "white",
     flex: 1,
+    paddingHorizontal: 20,
+    paddingBottom: 20,
   },
   genderText: {
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: "700",
     paddingVertical: 20,
+    paddingBottom: 30,
   },
   profileContainer: {
     flexDirection: "row",

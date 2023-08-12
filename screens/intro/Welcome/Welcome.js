@@ -37,9 +37,12 @@ const Welcome = () => {
           receive some background information. And that will be kept secret
         </Text>
       </View>
+
+      {/* <View style={{ flex: 1 }}> */}
       <TouchableOpacity style={styles.buttonContainer} onPress={goToGender}>
         <Text style={styles.btn}>Get Started</Text>
       </TouchableOpacity>
+      {/* </View> */}
     </View>
   );
 };
@@ -49,15 +52,18 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
     flex: 1,
+    paddingHorizontal: 20,
+    paddingBottom: 10,
   },
   welcomeContainer: {
     marginVertical: 20,
     width: "100%",
     marginTop: 60,
     paddingVertical: 20,
+    // flex: 1,
   },
   welcomeHeading: {
-    fontSize: 90,
+    fontSize: 40,
     fontWeight: "bold",
     width: "100%",
     textAlign: "center",
@@ -78,6 +84,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingBottom: 20,
     gap: 2,
+    // flex: 1,
   },
   welcomeText: {
     color: "#199AFE",

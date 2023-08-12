@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingVertical: 60,
     justifyContent: "center",
+    paddingHorizontal: 20,
   },
 });
 export default Intro;

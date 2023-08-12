@@ -22,7 +22,7 @@ const DrinkWaterReport = ({ records }) => {
   const navigation = useNavigation();
   return (
     <View style={{}}>
-      <View style={{ flexDirection: "row", gap: 10, alignItems: "center" }}>
+      <View style={{ flexDirection: "row", gap: 15, alignItems: "center" }}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={{}}>
           <Ionicons
             name="chevron-back"
@@ -37,7 +37,7 @@ const DrinkWaterReport = ({ records }) => {
             }}
           />
         </TouchableOpacity>
-        <Text style={{ fontWeight: 600, fontSize: 22 }}>
+        <Text style={{ fontWeight: 600, fontSize: 18 }}>
           Drink Water report
         </Text>
       </View>
@@ -60,10 +60,10 @@ const DrinkWaterReport = ({ records }) => {
               borderRadius: 100,
             }}
           ></View>
-          <Text style={{ fontWeight: 600, fontSize: 16 }}>Weekly average</Text>
+          <Text style={{ fontWeight: 600, fontSize: 14 }}>Weekly average</Text>
         </View>
 
-        <Text style={{ color: "#5bacfe", fontWeight: 500, fontSize: 16 }}>
+        <Text style={{ color: "#5bacfe", fontWeight: 500, fontSize: 14 }}>
           {weekly}ml/day
         </Text>
       </View>
@@ -83,10 +83,10 @@ const DrinkWaterReport = ({ records }) => {
               borderRadius: 100,
             }}
           ></View>
-          <Text style={{ fontWeight: 600, fontSize: 16 }}>Monthly average</Text>
+          <Text style={{ fontWeight: 600, fontSize: 14 }}>Monthly average</Text>
         </View>
 
-        <Text style={{ color: "#5bacfe", fontWeight: 500, fontSize: 16 }}>
+        <Text style={{ color: "#5bacfe", fontWeight: 500, fontSize: 14 }}>
           {monthly}ml/day
         </Text>
       </View>

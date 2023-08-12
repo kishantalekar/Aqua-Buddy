@@ -1,4 +1,11 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ScrollView,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign, Feather } from "@expo/vector-icons";
 
@@ -40,12 +47,17 @@ const HomeScreen = ({ logout }) => {
     const loadData = async () => {
       const weight = await getItem(WEIGHT_KEY);
       const activity = await getItem(ACTIVITY_KEY);
-      let progressFromDB = parseInt(await getItem(PROGRESS_KEY));
+      let progressFromDB = await getItem(PROGRESS_KEY);
       const calcDailyIntake = calcDailyGoal(weight, activity);
       setDailyGoal(calcDailyIntake);
 
       // console.log(typeof progressFromDB, "db");
-      if (progressFromDB !== null) setProgress(progressFromDB);
+
+      if (progressFromDB !== null) {
+        setProgress(parseInt(progressFromDB));
+      } else {
+        setProgress(0);
+      }
     };
     loadData();
     calcPercentage();
@@ -112,43 +124,44 @@ const HomeScreen = ({ logout }) => {
         {/* top container start */}
         <Header />
         {/* top container end */}
-        <Suggestions />
-        {/* progress start */}
-        <View>
-          <View
-            style={{
-              marginTop: 20,
-              // paddingVertical: 40,
-              // backgroundColor: "white",
-            }}
-          >
+        <ScrollView>
+          <Suggestions />
+          {/* progress start */}
+          <View>
             <View
               style={{
-                justifyContent: "center",
-                alignItems: "center",
+                marginTop: 20,
+                marginBottom: 20,
               }}
             >
-              <CircularProgressBar
-                percentage={percentage}
-                radius={130}
-                strokeWidth={12}
-                color="#199AFE"
-                // color="#c9e4f7"
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
               >
-                {/* Additional components */}
-                <ProgressData
-                  dailyGoal={dailyGoal}
-                  progress={progress}
+                <CircularProgressBar
                   percentage={percentage}
-                  handleProgress={handleProgress}
-                />
-              </CircularProgressBar>
+                  radius={140}
+                  strokeWidth={12}
+                  color="#199AFE"
+                  // color="#c9e4f7"
+                >
+                  {/* Additional components */}
+                  <ProgressData
+                    dailyGoal={dailyGoal}
+                    progress={progress}
+                    percentage={percentage}
+                    handleProgress={handleProgress}
+                  />
+                </CircularProgressBar>
+              </View>
+              <AddWater handleClick={handleProgress} />
             </View>
-            <AddWater handleClick={handleProgress} />
+            {/* Record end */}
           </View>
-          {/* Record end */}
-        </View>
-        <RecordComponent records={records} />
+          <RecordComponent records={records} />
+        </ScrollView>
       </View>
     </>
   );

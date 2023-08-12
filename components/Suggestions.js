@@ -56,7 +56,7 @@ const Suggestions = () => {
           position: "relative",
         }}
       >
-        <Text style={{ color: "black", fontWeight: 400, fontSize: 16 }}>
+        <Text style={{ color: "black", fontWeight: 400, fontSize: 14 }}>
           {randomSuggestion}
         </Text>
         <View

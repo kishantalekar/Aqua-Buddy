@@ -100,10 +100,11 @@ const styles = StyleSheet.create({
   weightContainer: {
     flex: 1,
     backgroundColor: "white",
+    paddingHorizontal: 20,
   },
   weightText: {
     fontWeight: "bold",
-    fontSize: 28,
+    fontSize: 24,
     // backgroundColor: "red",
     textAlign: "center",
   },
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
   },
   scrollText: {
     color: "#189afd",
-    fontSize: 40,
+    fontSize: 24,
     marginLeft: 10,
     borderTopColor: "#d8d8d8",
     borderBottomColor: "#d8d8d8",
