@@ -10,6 +10,7 @@ import { scheduleReminders } from "../../notification/Notification";
 import { useDispatch, useSelector } from "react-redux";
 import { addRemindingTimes } from "../../features/reminderSlicd";
 import { ViewComponent } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const ReminderScheduleScreen = () => {
   const navigation = useNavigation();
@@ -19,8 +20,7 @@ const ReminderScheduleScreen = () => {
   const dispatch = useDispatch();
   const getData = async () => {
     const data = await getRemindingTimes();
-
-    setRemindingTimes(data);
+    if (data && data.length > 0) setRemindingTimes(data);
   };
   useEffect(() => {
     getData();
@@ -83,7 +83,13 @@ const ReminderScheduleScreen = () => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: "white", paddingBottom: 20 }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: "white",
+        paddingBottom: 20,
+      }}
+    >
       <View
         style={{
           backgroundColor: "#3ba2ff",
@@ -153,7 +159,7 @@ const ReminderScheduleScreen = () => {
           />
         )}
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

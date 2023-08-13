@@ -65,7 +65,7 @@ const Setting = ({ handleAuthChange, route }) => {
   }, [route]);
 
   return (
-    <View>
+    <SafeAreaView>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons
@@ -174,13 +174,13 @@ const Setting = ({ handleAuthChange, route }) => {
         <Text style={styles.reminderText}>Scheduled Reminder</Text>
       </TouchableOpacity>
 
-      {/* <View style={styles.logoutContainer}>
+      <View style={styles.logoutContainer}>
         <Text style={styles.logoutText}>Logout</Text>
         <TouchableOpacity onPress={handleLogout}>
           <MaterialIcons name="logout" size={28} color="gray" />
         </TouchableOpacity>
-      </View> */}
-    </View>
+      </View>
+    </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     backgroundColor: "white",
-    paddingTop: 50,
+    paddingTop: 10,
     paddingHorizontal: 20,
     padding: 10,
   },
@@ -245,6 +245,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     gap: 10,
     marginRight: 10,
+    marginHorizontal: 20,
   },
   logoutText: {
     fontWeight: "500",

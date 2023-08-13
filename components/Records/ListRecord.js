@@ -1,6 +1,6 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
-import { Feather } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 
 const ListRecord = ({ item }) => {
   return (
@@ -13,6 +13,8 @@ const ListRecord = ({ item }) => {
           marginTop: 5,
           borderRadius: 10,
           // backgroundColor: "red",
+          elevation: 1,
+          marginBottom: 3,
         }}
       >
         <View
@@ -26,7 +28,9 @@ const ListRecord = ({ item }) => {
             source={require("../../assets/cup1.jpeg")}
             style={{ height: 50, width: 50, borderRadius: 10 }}
           />
-          <Text style={{ fontWeight: 500, fontSize: 18 }}>
+          <Text
+            style={{ fontWeight: 500, fontSize: 16, fontFamily: "sans-serif" }}
+          >
             {item.displayTime}
           </Text>
         </View>
@@ -39,10 +43,17 @@ const ListRecord = ({ item }) => {
             gap: 4,
           }}
         >
-          <Text style={{ color: "gray", fontSize: 18, fontWeight: 400 }}>
+          <Text
+            style={{
+              color: "gray",
+              fontSize: 16,
+              fontWeight: 400,
+              fontFamily: "sans-serif",
+            }}
+          >
             {item.ml} ml
           </Text>
-          <Feather name="more-vertical" size={20} color="gray" />
+          <Ionicons name="md-water-outline" size={20} color="#199AFE" />
         </View>
       </View>
     </TouchableOpacity>

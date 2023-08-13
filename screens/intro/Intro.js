@@ -9,6 +9,7 @@ import {
 import Weight from "./Weight/Weight";
 import Activity from "./Activity/Activity";
 import { Octicons } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 const Intro = () => {
   const [page, setPage] = useState(GENDER_SCREEN);
 
@@ -16,7 +17,7 @@ const Intro = () => {
     setPage(pageName);
   };
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.activeContainer}>
         <Octicons
           name="dash"
@@ -39,7 +40,7 @@ const Intro = () => {
         <Weight onPrevPage={pageHandler} onNextPage={pageHandler} />
       )}
       {page == ACTIVITY_SCREEN && <Activity onPrevPage={pageHandler} />}
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: "gray",
     backgroundColor: "white",
     width: "100%",
-    paddingVertical: 60,
+    paddingVertical: 40,
     justifyContent: "center",
     paddingHorizontal: 20,
   },

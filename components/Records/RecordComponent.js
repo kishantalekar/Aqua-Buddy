@@ -73,6 +73,7 @@ const RecordComponent = ({ records }) => {
           <Text
             style={{
               textAlign: "center",
+              marginTop: 40,
             }}
           >
             No Records available

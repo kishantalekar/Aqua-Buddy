@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "water-reminder",
+    "name": "Aqua Buddy",
     "slug": "aqua-buddy",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },

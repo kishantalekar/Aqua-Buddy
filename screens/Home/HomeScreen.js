@@ -115,7 +115,7 @@ const HomeScreen = ({ logout }) => {
 
   return (
     <>
-      <View style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1 }}>
         {/* top container start */}
         <Header />
         {/* top container end */}
@@ -157,7 +157,7 @@ const HomeScreen = ({ logout }) => {
           </View>
           <RecordComponent records={records} />
         </ScrollView>
-      </View>
+      </SafeAreaView>
     </>
   );
 };

@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     alignItems: "center",
     backgroundColor: "white",
-    paddingTop: 50,
+    paddingTop: 10,
   },
 
   image: {

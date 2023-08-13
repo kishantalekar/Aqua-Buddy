@@ -40,11 +40,11 @@ const ReminderComponent = () => {
 
       const scheduleRemindersIfNotScheduled = async () => {
         registerForPushNotificationsAsync();
-        scheduleReminders(data);
+        // scheduleReminders(data);
         saveRemindingTimes(data);
         // Pass the reminderTimes array generated from the previous code
       };
-      scheduleRemindersIfNotScheduled();
+      // scheduleRemindersIfNotScheduled();
       checkScheduledNotifications();
     };
 
@@ -83,6 +83,7 @@ const ReminderComponent = () => {
           marginTop: 5,
           height: 50,
           borderRadius: 10,
+          elevation: 3,
         }}
       >
         <View
@@ -92,9 +93,10 @@ const ReminderComponent = () => {
             alignItems: "center",
             paddingHorizontal: 10,
             gap: 10,
+            paddingVertical: 4,
           }}
         >
-          <EvilIcons name="clock" size={30} color="black" />
+          <EvilIcons name="clock" size={28} color="black" />
           <View>
             {closestReminder === null ? (
               <Text style={{ fontWeight: 400, fontSize: 14 }}>
@@ -102,10 +104,22 @@ const ReminderComponent = () => {
               </Text>
             ) : (
               <>
-                <Text style={{ fontWeight: 600, fontSize: 18 }}>
+                <Text
+                  style={{
+                    fontWeight: 600,
+                    fontSize: 16,
+                    fontFamily: "sans-serif",
+                  }}
+                >
                   {closestReminder?.time}
                 </Text>
-                <Text style={{ fontWeight: 400, fontSize: 14 }}>
+                <Text
+                  style={{
+                    fontWeight: 400,
+                    fontSize: 10,
+                    fontFamily: "sans-serif",
+                  }}
+                >
                   next reminder
                 </Text>
               </>
