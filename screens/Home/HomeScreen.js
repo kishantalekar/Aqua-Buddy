@@ -47,17 +47,12 @@ const HomeScreen = ({ logout }) => {
     const loadData = async () => {
       const weight = await getItem(WEIGHT_KEY);
       const activity = await getItem(ACTIVITY_KEY);
-      let progressFromDB = await getItem(PROGRESS_KEY);
       const calcDailyIntake = calcDailyGoal(weight, activity);
       setDailyGoal(calcDailyIntake);
 
       // console.log(typeof progressFromDB, "db");
 
-      if (progressFromDB !== null) {
-        setProgress(parseInt(progressFromDB));
-      } else {
-        setProgress(0);
-      }
+      setProgress(0);
     };
     loadData();
     calcPercentage();
@@ -101,7 +96,7 @@ const HomeScreen = ({ logout }) => {
   const handleProgress = async () => {
     if (progress < dailyGoal) {
       setProgress((prevProgress) => prevProgress + 200);
-      await setItem(PROGRESS_KEY, progress + 200);
+
       const time = getTime();
       const id = generateRandomId();
       const displayTime = getDisplayTime();
