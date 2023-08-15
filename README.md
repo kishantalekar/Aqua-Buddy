@@ -41,18 +41,16 @@ Open the Expo Go app on your mobile device and scan the QR code displayed in the
 
 ## Screenshots
 
-![App Screenshot](assets/screens/0.jpg)
-![App Screenshot](assets/screens/1.jpg)
-![App Screenshot](assets/screens/2.jpg)
-![App Screenshot](assets/screens/3.jpg)
-![App Screenshot](assets/screens/4.jpg)
-![App Screenshot](assets/screens/5.jpg)
-![App Screenshot](assets/screens/6.jpg)
-![App Screenshot](assets/screens/7.jpg)
-![App Screenshot](assets/screens/9.jpg)
-![App Screenshot](assets/screens/10.jpg)
-![App Screenshot](assets/screens/11.jpg)
-![App Screenshot](assets/screens/12.jpg)
+![App Screenshot](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/0eaeebd7-51ed-4889-819c-25d2b6f73f9a)
+![2](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/e3ac7e42-d40a-49e6-93b5-f0843339aa6c)
+![3](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/0ce2980b-26ec-46b3-8e7c-4763859265a1)
+![4](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/a575869e-bbc0-47ed-9534-6d620a21eb9e)
+![5](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/866165fc-a249-434c-b99c-1d1f9227b7cf)
+![7](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/4212031e-a242-45a4-829c-d597239fecaf)
+![8](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/b64511fb-ae78-4980-a231-001de8729123)
+![9](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/d4170fe6-aa44-433a-92f5-92bdfc1eb481)
+![10](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/58b3edff-3512-48c5-a411-37334e4fcd96)
+![12](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/18103ee1-29aa-4ffc-acf8-5465bd085c56)
 
 ## 🔗 Contact me at
 
