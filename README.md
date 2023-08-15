@@ -9,7 +9,7 @@ To get started with Aqua Buddy, follow these steps:
 Clone the Repository:
 
 ```bash
-git clone https://github.com/your-username/aqua-buddy.git
+git clone https://github.com/kishantalekar/Aqua-Buddy.git
 ```
 
 Install Dependencies:
