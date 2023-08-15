@@ -1,21 +1,21 @@
-# Aqua Buddy
+# SOS Sender App
 
-Aqua Buddy is a mobile application developed using Expo and React Native that helps users stay hydrated by sending them water intake reminders at regular intervals. With customizable reminder settings and a user-friendly interface.
+SOS Sender is a mobile application developed using React Native that allows users to quickly send emergency SOS messages along with images to their predefined emergency contacts.
 
 ## Getting Started
 
-To get started with Aqua Buddy, follow these steps:
+Follow these steps to run the SOS Sender app:
 
 Clone the Repository:
 
 ```bash
-git clone https://github.com/kishantalekar/Aqua-Buddy.git
+git clone https://github.com/kishantalekar/sos-sender.git
 ```
 
 Install Dependencies:
 
 ```bash
-cd aqua-buddy
+cd sos-sender
 npm install
 ```
 
@@ -35,23 +35,31 @@ Open the Expo Go app on your mobile device and scan the QR code displayed in the
 
 **React Native**
 
+**Firebase**
+
 **Expo**
 
 **Redux**
 
+**Nodejs**
+
+**Twillio**
+
 ## Screenshots
 
-![App Screenshot](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/0eaeebd7-51ed-4889-819c-25d2b6f73f9a)
-![2](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/e3ac7e42-d40a-49e6-93b5-f0843339aa6c)
-![3](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/0ce2980b-26ec-46b3-8e7c-4763859265a1)
-![4](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/a575869e-bbc0-47ed-9534-6d620a21eb9e)
-![5](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/866165fc-a249-434c-b99c-1d1f9227b7cf)
-![7](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/4212031e-a242-45a4-829c-d597239fecaf)
-![8](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/b64511fb-ae78-4980-a231-001de8729123)
-![9](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/d4170fe6-aa44-433a-92f5-92bdfc1eb481)
-![10](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/58b3edff-3512-48c5-a411-37334e4fcd96)
-![12](https://github.com/kishantalekar/Aqua-Buddy/assets/115180515/18103ee1-29aa-4ffc-acf8-5465bd085c56)
+![1](https://github.com/kishantalekar/sos-sender/assets/115180515/21530011-1b79-4a18-8343-8f26f394760a)
+![2](https://github.com/kishantalekar/sos-sender/assets/115180515/af560345-3c70-4907-a037-6d0925e788f4)
+![3](https://github.com/kishantalekar/sos-sender/assets/115180515/b5957898-fb74-4d7b-857c-d5b438cef7ee)
+![4](https://github.com/kishantalekar/sos-sender/assets/115180515/b9d67e11-3a1f-4977-943b-75dc783a9b5e)
+![5](https://github.com/kishantalekar/sos-sender/assets/115180515/c7e00923-2067-4a95-8d5d-cccc15034c28)
+![6](https://github.com/kishantalekar/sos-sender/assets/115180515/2944e5e7-8ed1-4f4b-a28d-08960cbfced1)
+![7](https://github.com/kishantalekar/sos-sender/assets/115180515/ed9db1f0-eaea-4c87-a41d-91fb848fd070)
+![8](https://github.com/kishantalekar/sos-sender/assets/115180515/1871172f-7fc2-4ff2-85f5-372869c26472)
+![9](https://github.com/kishantalekar/sos-sender/assets/115180515/d5d7603a-bfb9-4433-9faf-27dfc8d54263)
+![10](https://github.com/kishantalekar/sos-sender/assets/115180515/ea660478-bfcc-4648-a657-bfa1b7945631)
+![10](https://github.com/kishantalekar/sos-sender/assets/115180515/393ec451-e631-4c1a-af67-cc2d7093193a)
+![9](https://github.com/kishantalekar/sos-sender/assets/115180515/1208abe0-e263-43c1-b7a0-8bd3811855c5)
 
 ## 🔗 Contact me at
 
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](linkedin.com/in/kishan-talekar-2613b8260)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/kishan-talekar-2613b8260)
